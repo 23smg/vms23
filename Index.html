@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voucher Console - 23 Semarang</title>
   
-  <!-- Google Fonts: Inter untuk teks, Plus Jakarta Sans untuk Heading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com/3.4.15"></script>
   
-  <!-- Tailwind Font Configuration -->
   <script>
     tailwind.config = {
       theme: {
@@ -27,7 +25,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-    /* Override font header agar menggunakan Plus Jakarta Sans yang modern */
     h1, h2, h3, h4, .font-heading {
       font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
@@ -41,7 +38,6 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 overflow-x-hidden antialiased flex flex-col min-h-screen">
 
-  <!-- Halaman Login Minimalis Modern -->
   <div id="loginPage" class="flex flex-col min-h-screen items-center justify-center px-4 bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950">
     <div class="w-full max-w-sm rounded-xl bg-white p-8 shadow-2xl border border-slate-100">
       <div class="text-center mb-6">
@@ -63,16 +59,13 @@
         </button>
       </form>
     </div>
-    <!-- Footer Pembuat di Login -->
     <div class="mt-6 text-center text-[11px] text-slate-500">
       <p>&copy; 2026 Developed by <span class="font-bold text-slate-300">Alif Rizal</span></p>
       <a href="mailto:alif.rizal@23semarang.id" class="text-amber-500/80 hover:text-amber-400 transition">alif.rizal@23semarang.id</a>
     </div>
   </div>
 
-  <!-- Aplikasi Utama -->
   <div id="mainApp" class="hidden min-h-screen flex flex-col flex-1">
-    <!-- Header Premium Tanpa Logo Angka "23" -->
     <header class="bg-slate-900 text-white shadow-md border-b border-amber-500/30">
       <div class="mx-auto max-w-7xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center">
@@ -95,7 +88,6 @@
 
     <main class="flex-1 mx-auto w-full max-w-7xl p-6 space-y-6">
 
-      <!-- Form Penginputan CS -->
       <section id="tabInput" class="hidden max-w-xl mx-auto bg-white rounded-xl border border-slate-200 p-6 shadow-md">
         <h3 class="text-sm font-bold pb-3 mb-4 text-slate-900 border-b border-slate-100 uppercase tracking-wider flex items-center justify-between font-heading">
           <span>Form Penukaran Voucher</span>
@@ -167,9 +159,7 @@
         </form>
       </section>
 
-      <!-- Dashboard Admin -->
       <section id="tabAdmin" class="hidden space-y-6">
-        <!-- Dashboard Stats Berwarna Cerah -->
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-4 rounded-xl text-white flex items-center justify-between shadow-md border-l-4 border-amber-500">
             <div><p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Total Trx Hari Ini</p><p id="statTotal" class="text-2xl font-bold mt-0.5 text-amber-400 font-heading">0</p></div>
@@ -182,7 +172,6 @@
           </div>
         </div>
 
-        <!-- Tabel Log Data Ringkas -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 p-4 bg-slate-50">
             <h4 class="text-xs font-bold text-slate-700 tracking-wide uppercase font-heading">
@@ -196,12 +185,10 @@
             </div>
           </div>
 
-          <!-- Pencarian -->
           <div class="p-3 border-b border-slate-100 bg-slate-50/50">
             <input type="text" id="adminSearchInput" oninput="handleAdminSearch()" placeholder="Cari data log..." class="w-full max-w-xs text-xs rounded border border-slate-200 bg-white px-3 py-1.5 focus:border-amber-500 focus:outline-none transition-all">
           </div>
 
-          <!-- Area Tabel -->
           <div class="overflow-x-auto">
             <table class="w-full text-left table-modern border-collapse text-[11px]">
               <thead>
@@ -220,7 +207,6 @@
             </table>
           </div>
 
-          <!-- Pagination -->
           <div class="flex items-center justify-between p-3 border-t border-slate-200 text-[10px] font-bold text-slate-500 bg-slate-50">
             <div id="paginationInfo">Menampilkan 0-0 dari 0 data</div>
             <div class="flex items-center space-x-1">
@@ -234,7 +220,6 @@
 
     </main>
 
-    <!-- Footer Sistem Utama -->
     <footer class="mt-auto bg-slate-900 text-slate-400 text-center py-4 border-t border-slate-800 text-xs">
       <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
         <div>
@@ -247,12 +232,10 @@
     </footer>
   </div>
 
-  <!-- Panel Samping Pengaturan Berwarna -->
   <div id="settingPanel" class="fixed inset-0 bg-black/40 z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex justify-end backdrop-blur-xs">
     <div class="flex-1" onclick="toggleSettingPanel(false)"></div>
     <div class="w-full max-w-sm bg-white h-full shadow-2xl flex flex-col translate-x-full transition-transform duration-300 p-5 overflow-y-auto">
       
-      <!-- HEADER PANEL UTAMA -->
       <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
         <div class="flex items-center space-x-2">
           <button id="btnBackToMenu" onclick="navigateToSettingView('menu')" class="hidden bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded-md transition cursor-pointer border border-slate-200">
@@ -263,7 +246,6 @@
         <button onclick="toggleSettingPanel(false)" class="text-rose-500 hover:text-rose-700 text-xs font-bold uppercase tracking-wide border border-rose-200 bg-rose-50 px-2 py-1 rounded-md cursor-pointer transition">Tutup</button>
       </div>
 
-      <!-- 1. VIEW MENU UTAMA -->
       <div id="viewSettingMenu" class="space-y-3 select-none">
         <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2">Pilih Menu Pengaturan</p>
         
@@ -284,7 +266,6 @@
         </button>
       </div>
 
-      <!-- 2. VIEW SUBMENU: JENIS VOUCHER -->
       <div id="viewSettingVoucher" class="hidden space-y-4 text-[11px]">
         <div class="bg-amber-50/40 p-4 rounded-xl border border-amber-200 shadow-inner">
           <h4 class="font-bold text-amber-950 mb-2 uppercase tracking-wide text-[10px] font-heading">Tambah Voucher Baru</h4>
@@ -302,7 +283,6 @@
         </div>
       </div>
 
-      <!-- 3. VIEW SUBMENU: MANAJEMEN AKUN -->
       <div id="viewSettingUser" class="hidden space-y-4 text-[11px]">
         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-inner">
           <h4 class="font-bold text-slate-950 mb-2 uppercase tracking-wide text-[10px] font-heading">Registrasi Akun Petugas</h4>
@@ -328,7 +308,6 @@
     </div>
   </div>
 
-  <!-- Modal Pratinjau Gambar -->
   <div id="imageModal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50 backdrop-blur-xs">
     <div class="relative bg-white max-w-sm w-full rounded-lg p-1 shadow-2xl">
       <button onclick="closeModal()" class="absolute top-2 right-2 bg-rose-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold hover:bg-rose-700 shadow cursor-pointer">X</button>
@@ -336,8 +315,10 @@
     </div>
   </div>
 
-  <!-- Script logic (tetap dipertahankan seutuhnya) -->
   <script>
+    // URL Web App Google Apps Script Anda (Ganti dengan URL Macro deploy doPost Anda)
+    const WEB_APP_URL = "SUDAH_DIPERBARUI_LEWAT_LOGIKA_MAKRO_API";
+
     let CURRENT_USER = null;
     let BASE64_VOUCHER = "";
     let BASE64_PENERIMA = "";
@@ -347,6 +328,29 @@
     let FILTERED_ADMIN_DATA = [];
     let ADMIN_PAGINATION = { currentPage: 1, pageSize: 15 }; 
     let ADMIN_SORT = { column: 'waktu', direction: 'desc' };
+
+    // Fungsi Jembatan Fetch untuk menggantikan google.script.run secara asinkronus
+    async function callServer(actionName, payloadData = null) {
+      try {
+        const bodyData = { action: actionName };
+        if (payloadData !== null) {
+          bodyData.payload = payloadData;
+        }
+
+        const response = await fetch(WEB_APP_URL, {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(bodyData)
+        });
+
+        if (!response.ok) throw new Error("Network response error.");
+        return await response.json();
+      } catch (error) {
+        console.error("Fetch Error: ", error);
+        return { success: false, message: "Gagal terhubung dengan server cloud: " + error.message };
+      }
+    }
 
     function navigateToSettingView(viewTarget) {
       const titleLabel = document.getElementById('settingPanelTitle');
@@ -473,7 +477,7 @@
       }
     }
 
-    function handleLogin(e) {
+    async function handleLogin(e) {
       e.preventDefault();
       const btn = document.getElementById('btnLogin');
       btn.disabled = true;
@@ -482,37 +486,34 @@
       const emailVal = document.getElementById('loginEmail').value;
       const passVal = document.getElementById('loginPassword').value;
 
-      google.script.run.withSuccessHandler(res => {
-        btn.disabled = false;
-        btn.innerText = 'Masuk';
-        if (res.success) {
-          CURRENT_USER = res;
-          document.getElementById('loginPage').classList.add('hidden');
-          document.getElementById('mainApp').classList.remove('hidden');
-          document.getElementById('userBadge').innerText = `${res.role.toUpperCase()}: ${res.userEmail}`;
-          
-          if(res.role === 'admin' || res.role === 'manager') {
-            document.getElementById('appTitle').innerText = "Voucher Console 23 Semarang";
-            if(document.getElementById('tabInput')) document.getElementById('tabInput').remove(); 
-            document.getElementById('btnSettingAdmin').classList.remove('hidden'); 
-            document.getElementById('tabAdmin').style.display = "block";
-            loadAdminDashboard();
-          } else {
-            document.getElementById('appTitle').innerText = "Voucher Counter 23 Semarang";
-            if(document.getElementById('tabAdmin')) document.getElementById('tabAdmin').remove(); 
-            if(document.getElementById('settingPanel')) document.getElementById('settingPanel').remove(); 
-            document.getElementById('tabInput').style.display = "block";
-            document.getElementById('payloadNamaCs').value = res.userEmail;
-            initDropdownOptions();
-          }
+      const res = await callServer("checkUserLogin", { email: emailVal, pass: passVal });
+      
+      btn.disabled = false;
+      btn.innerText = 'Masuk';
+      
+      if (res.success) {
+        CURRENT_USER = res;
+        document.getElementById('loginPage').classList.add('hidden');
+        document.getElementById('mainApp').classList.remove('hidden');
+        document.getElementById('userBadge').innerText = `${res.role.toUpperCase()}: ${res.userEmail}`;
+        
+        if(res.role === 'admin' || res.role === 'manager') {
+          document.getElementById('appTitle').innerText = "Voucher Console 23 Semarang";
+          if(document.getElementById('tabInput')) document.getElementById('tabInput').remove(); 
+          document.getElementById('btnSettingAdmin').classList.remove('hidden'); 
+          document.getElementById('tabAdmin').style.display = "block";
+          loadAdminDashboard();
         } else {
-          Swal.fire({ icon: 'error', text: res.message });
+          document.getElementById('appTitle').innerText = "Voucher Counter 23 Semarang";
+          if(document.getElementById('tabAdmin')) document.getElementById('tabAdmin').remove(); 
+          if(document.getElementById('settingPanel')) document.getElementById('settingPanel').remove(); 
+          document.getElementById('tabInput').style.display = "block";
+          document.getElementById('payloadNamaCs').value = res.userEmail;
+          initDropdownOptions();
         }
-      }).withFailureHandler(() => {
-        btn.disabled = false;
-        btn.innerText = 'Masuk';
-        Swal.fire({ icon: 'error', text: 'Gagal menghubungi server database.' });
-      }).checkUserLogin(emailVal, passVal);
+      } else {
+        Swal.fire({ icon: 'error', text: res.message });
+      }
     }
 
     function logout() {
@@ -538,12 +539,11 @@
       }
     }
 
-    function initDropdownOptions() {
-      google.script.run.withSuccessHandler(res => {
-        if(res.success && res.options) {
-          renderVoucherDropdown(res.options.voucherList);
-        }
-      }).getFormDataOptions();
+    async function initDropdownOptions() {
+      const res = await callServer("getFormDataOptions");
+      if(res.success && res.options) {
+        renderVoucherDropdown(res.options.voucherList);
+      }
     }
 
     function renderVoucherDropdown(list) {
@@ -563,7 +563,7 @@
       }
     }
 
-    function handleReportSubmit(e) {
+    async function handleReportSubmit(e) {
       e.preventDefault();
       if(!BASE64_VOUCHER || !BASE64_PENERIMA) {
         return Swal.fire({ icon: 'warning', text: 'Lengkapi berkas foto voucher fisik dan foto pelanggan!' });
@@ -584,20 +584,17 @@
         fotoPenerimaBase64: BASE64_PENERIMA
       };
 
-      google.script.run.withSuccessHandler(res => {
-        btn.disabled = false;
-        btn.innerText = 'Kirim Laporan';
-        if (typeof res === 'string') { try { res = JSON.parse(res); } catch(e) {} }
-        if (res && res.success) {
-          Swal.fire({ icon: 'success', text: "Laporan Terkirim" });
-          resetFormCS();
-        } else {
-          Swal.fire({ icon: 'error', text: (res?.message || "Terjadi kesalahan sistem.") });
-        }
-      }).withFailureHandler(() => {
-        btn.disabled = false;
-        Swal.fire({ icon: 'error', text: 'Gagal terhubung ke Cloud.' });
-      }).submitCSReport(payload);
+      let res = await callServer("submitCSReport", payload);
+      btn.disabled = false;
+      btn.innerText = 'Kirim Laporan';
+
+      if (typeof res === 'string') { try { res = JSON.parse(res); } catch(e) {} }
+      if (res && res.success) {
+        Swal.fire({ icon: 'success', text: "Laporan Terkirim" });
+        resetFormCS();
+      } else {
+        Swal.fire({ icon: 'error', text: (res?.message || "Terjadi kesalahan sistem.") });
+      }
     }
 
     function resetFormCS() {
@@ -612,66 +609,65 @@
       initDropdownOptions();
     }
 
-    function loadAdminDashboard() {
+    async function loadAdminDashboard() {
       const tbody = document.getElementById('dashboardTableBody');
       if(!tbody) return;
       tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center font-heading">Memuat data...</td></tr>`;
 
-      google.script.run.withSuccessHandler(res => {
-        if(res && res.success) {
-          document.getElementById('statTotal').innerText = res.stats?.total ?? 0;
-          document.getElementById('statTopCs').innerText = res.stats?.topCs || '-';
-          document.getElementById('statTopVoucher').innerText = res.stats?.topVoucher || '-';
+      const res = await callServer("getAdminDashboardData");
+      if(res && res.success) {
+        document.getElementById('statTotal').innerText = res.stats?.total ?? 0;
+        document.getElementById('statTopCs').innerText = res.stats?.topCs || '-';
+        document.getElementById('statTopVoucher').innerText = res.stats?.topVoucher || '-';
 
-          document.getElementById('adminVoucherList').innerHTML = (res.settings?.voucherList || []).map(v => `
-            <li class="flex justify-between items-center py-2.5">
-              <span class="font-semibold text-slate-700">${v.nama} <span class="font-bold text-amber-600 font-mono text-[10px] ml-1.5 bg-amber-50 px-1.5 py-0.5 rounded">(Sisa: ${v.qty})</span></span>
-              <div class="flex items-center gap-2">
-                <button onclick="restockVoucherConfig('${v.nama}')" class="text-emerald-700 bg-emerald-50 border border-emerald-200 font-bold text-[10px] py-0.5 px-2 rounded hover:bg-emerald-100 cursor-pointer transition">Tambah</button>
-                <button onclick="deleteVoucherConfig('${v.nama}')" class="text-rose-600 bg-rose-50 border border-rose-100 text-[10px] py-0.5 px-2 rounded hover:bg-rose-100 cursor-pointer transition">Hapus</button>
-              </div>
-            </li>
-          `).join('');
+        document.getElementById('adminVoucherList').innerHTML = (res.settings?.voucherList || []).map(v => `
+          <li class="flex justify-between items-center py-2.5">
+            <span class="font-semibold text-slate-700">${v.nama} <span class="font-bold text-amber-600 font-mono text-[10px] ml-1.5 bg-amber-50 px-1.5 py-0.5 rounded">(Sisa: ${v.qty})</span></span>
+            <div class="flex items-center gap-2">
+              <button onclick="restockVoucherConfig('${v.nama}')" class="text-emerald-700 bg-emerald-50 border border-emerald-200 font-bold text-[10px] py-0.5 px-2 rounded hover:bg-emerald-100 cursor-pointer transition">Tambah</button>
+              <button onclick="deleteVoucherConfig('${v.nama}')" class="text-rose-600 bg-rose-50 border border-rose-100 text-[10px] py-0.5 px-2 rounded hover:bg-rose-100 cursor-pointer transition">Hapus</button>
+            </div>
+          </li>
+        `).join('');
 
-          document.getElementById('adminUserAccountList').innerHTML = (res.userList || []).map(u => `
-            <li class="flex justify-between items-center py-2.5">
-              <div>
-                <span class="font-bold text-slate-800">${u.nama}</span>
-                <span class="text-[9px] uppercase tracking-wide px-1.5 py-0.5 ml-1.5 rounded-md font-bold ${u.role === 'admin' ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-800'}">${u.role}</span>
-                <span class="block text-[10px] text-slate-400 mt-0.5">${u.email}</span>
-              </div>
-              <button onclick="deleteUserAccount('${u.email}')" class="text-rose-600 bg-rose-50 border border-rose-100 text-[10px] py-0.5 px-2 rounded hover:bg-rose-100 cursor-pointer transition">Hapus</button>
-            </li>
-          `).join('');
+        document.getElementById('adminUserAccountList').innerHTML = (res.userList || []).map(u => `
+          <li class="flex justify-between items-center py-2.5">
+            <div>
+              <span class="font-bold text-slate-800">${u.nama}</span>
+              <span class="text-[9px] uppercase tracking-wide px-1.5 py-0.5 ml-1.5 rounded-md font-bold ${u.role === 'admin' ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-800'}">${u.role}</span>
+              <span class="block text-[10px] text-slate-400 mt-0.5">${u.email}</span>
+            </div>
+            <button onclick="deleteUserAccount('${u.email}')" class="text-rose-600 bg-rose-50 border border-rose-100 text-[10px] py-0.5 px-2 rounded hover:bg-rose-100 cursor-pointer transition">Hapus</button>
+          </li>
+        `).join('');
 
-          MASTER_ADMIN_DATA = (res.data || []).map(row => {
-            let rawWaktu = row.timestamp || row.Tanggal || row.waktu || row.date || '';
-            let waktuFormatted = '—';
+        MASTER_ADMIN_DATA = (res.data || []).map(row => {
+          let rawWaktu = row.timestamp || row.Tanggal || row.waktu || row.date || '';
+          let waktuFormatted = '—';
 
-            if (rawWaktu) {
-              const d = new Date(rawWaktu);
-              const infoString = String(rawWaktu);
-              const punyaFormatTanggal = infoString.includes('/') || infoString.includes('-');
-              const padZero = (num) => String(num).padStart(2, '0');
+          if (rawWaktu) {
+            const d = new Date(rawWaktu);
+            const infoString = String(rawWaktu);
+            const punyaFormatTanggal = infoString.includes('/') || infoString.includes('-');
+            const padZero = (num) => String(num).padStart(2, '0');
 
-              if (!isNaN(d.getTime()) && (d.getFullYear() > 1970 || punyaFormatTanggal)) {
-                waktuFormatted = `${padZero(d.getDate())}/${padZero(d.getMonth() + 1)} ${padZero(d.getHours())}:${padZero(d.getMinutes())}`;
-              } else {
-                const hariIni = new Date();
-                waktuFormatted = `${padZero(hariIni.getDate())}/${padZero(hariIni.getMonth() + 1)} ${infoString.trim()}`;
-              }
+            if (!isNaN(d.getTime()) && (d.getFullYear() > 1970 || punyaFormatTanggal)) {
+              waktuFormatted = `${padZero(d.getDate())}/${padZero(d.getMonth() + 1)} ${padZero(d.getHours())}:${padZero(d.getMinutes())}`;
+            } else {
+              const hariIni = new Date();
+              waktuFormatted = `${padZero(hariIni.getDate())}/${padZero(hariIni.getMonth() + 1)} ${infoString.trim()}`;
             }
-            row.waktuTampil = waktuFormatted;
-            return row;
-          });
+          }
+          row.waktuTampil = waktuFormatted;
+          return row;
+        });
 
-          document.getElementById('adminSearchInput').value = '';
-          FILTERED_ADMIN_DATA = [...MASTER_ADMIN_DATA];
-          ADMIN_PAGINATION.currentPage = 1;
+        document.getElementById('adminSearchInput').value = '';
+        FILTERED_ADMIN_DATA = [...MASTER_ADMIN_DATA];
+        ADMIN_PAGINATION.currentPage = 1;
 
-          applySortAndRenderTable();
-        }
-      }).getAdminDashboardData();
+        applySortAndRenderTable();
+      }
     }
 
     function handleAdminSearch() {
@@ -848,16 +844,15 @@
       document.getElementById('modalImgTarget').removeAttribute('src');
     }
 
-    function addVoucherConfig() {
+    async function addVoucherConfig() {
       const nama = document.getElementById('newVoucherName').value.trim();
       const qty = document.getElementById('newVoucherQty').value.trim();
       if(!nama || !qty) return Swal.fire({ icon: 'warning', text: 'Data tidak lengkap.' });
       
-      google.script.run.withSuccessHandler(() => {
-        document.getElementById('newVoucherName').value = '';
-        document.getElementById('newVoucherQty').value = '';
-        loadAdminDashboard();
-      }).addSettingItem('voucher', { nama: nama, qty: qty });
+      await callServer("addSettingItem", { type: 'voucher', data: { nama: nama, qty: qty } });
+      document.getElementById('newVoucherName').value = '';
+      document.getElementById('newVoucherQty').value = '';
+      loadAdminDashboard();
     }
 
     function restockVoucherConfig(namaVoucher) {
@@ -868,10 +863,11 @@
         showCancelButton: true,
         confirmButtonText: 'Simpan',
         cancelButtonText: 'Batal'
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
           const qtyNumber = parseInt(result.value);
-          google.script.run.withSuccessHandler(() => { loadAdminDashboard(); }).addSettingItem('voucher_restock', { nama: namaVoucher, qty: qtyNumber });
+          await callServer("addSettingItem", { type: 'voucher_restock', data: { nama: namaVoucher, qty: qtyNumber } });
+          loadAdminDashboard();
         }
       });
     }
@@ -883,14 +879,15 @@
         showCancelButton: true,
         confirmButtonText: 'Ya',
         cancelButtonText: 'Batal'
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          google.script.run.withSuccessHandler(() => { loadAdminDashboard(); }).deleteSettingItem('voucher', value);
+          await callServer("deleteSettingItem", { type: 'voucher', value: value });
+          loadAdminDashboard();
         }
       });
     }
 
-    function addUserAccount() {
+    async function addUserAccount() {
       const nama = document.getElementById('newUserName').value.trim();
       const email = document.getElementById('newUserEmail').value.trim();
       const pass = document.getElementById('newUserPass').value;
@@ -898,14 +895,13 @@
 
       if(!nama || !email || !pass) return Swal.fire({ icon: 'warning', text: 'Data tidak lengkap.' });
 
-      google.script.run.withSuccessHandler(res => {
-        if(res.success) {
-          document.getElementById('newUserName').value = '';
-          document.getElementById('newUserEmail').value = '';
-          document.getElementById('newUserPass').value = '';
-          loadAdminDashboard();
-        }
-      }).adminAddUserAccount(email, pass, role, nama);
+      const res = await callServer("adminAddUserAccount", { email, pass, role, nama });
+      if(res.success) {
+        document.getElementById('newUserName').value = '';
+        document.getElementById('newUserEmail').value = '';
+        document.getElementById('newUserPass').value = '';
+        loadAdminDashboard();
+      }
     }
 
     function deleteUserAccount(email) {
@@ -916,23 +912,30 @@
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Hapus'
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          google.script.run.withSuccessHandler(() => { loadAdminDashboard(); }).adminDeleteUserAccount(email);
+          await callServer("adminDeleteUserAccount", { email: email });
+          loadAdminDashboard();
         }
       });
     }
 
-    function generateExcelReportOnServer() {
+    async function generateExcelReportOnServer() {
       const btn = document.getElementById('btnDownloadExcel');
       btn.disabled = true;
       btn.innerText = 'Exporting...';
       
-      google.script.run.withSuccessHandler(url => {
-        btn.disabled = false;
-        btn.innerText = 'Export Excel';
-        if (url && url.startsWith("http")) window.open(url, '_blank');
-      }).exportLogToExcelWithImages();
+      const res = await callServer("exportLogToExcelWithImages");
+      btn.disabled = false;
+      btn.innerText = 'Export Excel';
+      
+      if (res && res.url && res.url.startsWith("http")) {
+        window.open(res.url, '_blank');
+      } else if (typeof res === 'string' && res.startsWith("http")) {
+        window.open(res, '_blank');
+      } else {
+        Swal.fire({ icon: 'error', text: 'Gagal mendapatkan tautan unduhan berkas.' });
+      }
     }
   </script>
 </body>
