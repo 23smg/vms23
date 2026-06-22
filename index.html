@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Penukaran Voucher Mall</title>
+    <title>Sistem Penukaran Voucher Mall - 23 Semarang</title>
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #ffffff;
+            margin: 0; padding: 0; height: 100%; overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a; /* Slate 900 agar senada dengan tema */
         }
         iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
+            border: none; width: 100%; height: 100%; display: none;
         }
+        /* Efek Loading animasi sebelum iframe siap */
+        #loading-screen {
+            position: fixed; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; color: #ffffff;
+        }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #f59e0b; /* Warna amber */
+            border-radius: 50%; animation: spin 1s linear infinite;
+            margin-bottom: 12px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <iframe src="https://script.google.com/macros/s/AKfycbyEzfSjzKXj7dC43l6ccQUBIYb90RuZUyPOBJiiUKnfruSSqrQigA9bGETFCthOsqJV0g/exec">
-        Browser Anda tidak mendukung iframe. Mohon gunakan browser modern.
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <div style="font-size: 13px; font-weight: 600; color: #cbd5e1;">Memuat Ekosistem Cloud...</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 4px;">Mohon tunggu, sedang menghubungkan ke Google Server</div>
+    </div>
+
+    <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbyEzfSjzKXj7dC43l6ccQUBIYb90RuZUyPOBJiiUKnfruSSqrQigA9bGETFCthOsqJV0g/exec">
+        Browser Anda tidak mendukung iframe.
     </iframe>
 
+    <script>
+        const frame = document.getElementById('app-frame');
+        const loader = document.getElementById('loading-screen');
+
+        // Ketika iframe selesai memuat dengan sempurna, hilangkan loading screen
+        frame.onload = function() {
+            loader.style.display = 'none';
+            frame.style.display = 'block';
+        };
+
+        // Proteksi jika dalam 15 detik gagal terhubung, berikan instruksi otomatis ke user
+        setTimeout(() => {
+            if (loader.style.display !== 'none') {
+                loader.innerHTML = `
+                    <div style="text-align:center; padding: 20px;">
+                        <p style="font-size: 13px; color: #f43f5e; font-weight: bold;">Koneksi Server Google Tidak Merespon</p>
+                        <p style="font-size: 11px; color: #94a3b8; max-width: 250px; margin: 8px auto;">Server Google sedang sibuk atau browser memblokir cookie pihak ketiga.</p>
+                        <button onclick="window.location.reload()" style="background:#f59e0b; color:#000; border:none; padding:6px 16px; font-size:11px; font-weight:bold; border-radius:4px; cursor:pointer; margin-top:8px;">Muat Ulang Halaman</button>
+                    </div>
+                `;
+            }
+        }, 15000); // 15 detik timeout
+    </script>
 </body>
 </html>
